@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="validateCodeImg"
+  id="myeclipse.1500870368426"
+  context-root="/validateCodeImg"
+  j2ee-spec="5.0"
+  archive="validateCodeImg.war">
+  <attributes>
+    <attribute name="webrootdir" value="validateCodeImg" />
+  </attributes>
+</project-module>
+
