@@ -1,14 +1,18 @@
 package main;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.List;
 
 public class testmain {
 
     public static void main( String[] args) throws Exception {
 //        TestDirectoryStream();
-        TestwalkFileTree();
+//        TestwalkFileTree();
+//        fastRead();
+        changeUnio();
     }
     public static void TestPath(){
         Path listing = Paths.get("/ usr/ bin/ zip");// 创建 绝对 路径
@@ -34,6 +38,10 @@ public class testmain {
         }
     }
 
+    /**
+     * 列出目录下所有文件
+     * @throws IOException
+     */
     public static void TestwalkFileTree() throws IOException {
 
         Path startingDir = Paths. get("E:\\WorkSpace\\GIT\\edc-plsqltool\\edc-plsqltool-ms\\src\\main\\java");
@@ -53,6 +61,37 @@ public class testmain {
                 System. out. println( file. getFileName());
             }
             return FileVisitResult. CONTINUE;
+        }
+    }
+
+    /**
+     * 快速 读写 数据
+     */
+    private static void fastRead() throws IOException {
+        Path logFile = Paths.get("C:\\Users\\43853\\Desktop\\新建文本文档.sh");
+        List< String> lines = Files.readAllLines( logFile, StandardCharsets.UTF_8);
+        try (BufferedWriter writer = Files.newBufferedWriter( logFile, StandardCharsets.UTF_8, StandardOpenOption.APPEND))
+        {
+            writer. write("Hello World!");
+        }
+        byte[] bytes = Files.readAllBytes( logFile);
+        String out = new String(bytes);
+        System.out.println(out);
+    }
+
+    private static void changeUnio() throws Exception {
+
+        File fileIn = new File("C:\\Users\\43853\\Desktop\\b67c34fcc23643dcaf0699f2326d3952.csv");
+
+        try (InputStream is = new FileInputStream(fileIn);
+                        InputStreamReader isr = new InputStreamReader(is,"gbk");
+                        BufferedReader buff = new BufferedReader(isr);
+        ){
+            String str = null;
+            while ( (str = buff.readLine()) != null ){
+                System.out.println(str);
+//                System.out.println(new String(str.getBytes("GBK"), "UTF-8"));
+            }
         }
     }
 

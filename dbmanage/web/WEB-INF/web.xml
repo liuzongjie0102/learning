@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    
+    <servlet>
+        <servlet-name>ConnectionServlet</servlet-name>
+        <servlet-class>com.newland.servlet.queryServlet</servlet-class>
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.mysql.jdbc.Driver</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:mysql://localhost:3306/app</param-value>
+        </init-param>
+        <init-param>
+            <param-name>user</param-name>
+            <param-value>lzj</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ConnectionServlet</servlet-name>
+        <url-pattern>/ConnectionServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
