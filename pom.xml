@@ -16,8 +16,6 @@
         <module>jdk8</module>
         <module>leecode</module>
         <module>answer</module>
-        <module>dbmanage</module>
-        <module>antrl4</module>
+        <module>antlr4</module>
     </modules>
-
 </project>
